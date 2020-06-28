@@ -126,7 +126,7 @@ class EntityAdmin {
         this.systems = [];
         this.entities = [];
         this.queries = {};
-        this.singletonComponents = [];
+        this.singletonComponents = new _Entity__WEBPACK_IMPORTED_MODULE_0__["Entity"]();
 
         this.firstUpdate = true;
     }
@@ -149,6 +149,7 @@ class EntityAdmin {
     }
 
     registerQuery(name, ComponentArray) {
+        if (name === "singleton") throw new Error("Singleton is a reserved query");
         this.queries[name] = new _Query__WEBPACK_IMPORTED_MODULE_1__["Query"](name, ComponentArray);
         return this;
     }
@@ -161,7 +162,11 @@ class EntityAdmin {
     }
 
     addSingletonComponent(Component, initialState = {}) {
-        
+        // These are singleton so only one instance can exist in the singleton entity.
+        if (this.singletonComponents.hasComponent(Component)) return;
+        this.singletonComponents.addComponent(Component, initialState);
+        this._updateQueries(); // I'd rather not iterate over every entity every time we add one.
+        return this;
     }
 
     _updateQueries() {
@@ -178,7 +183,8 @@ class EntityAdmin {
                     query.entities.push(entity);
                 }
             }
-        })
+        });
+        this.queries.singleton = this.singletonComponents;
     }
 }
 
@@ -205,6 +211,10 @@ class Entity {
 
     getComponent(Component) {
         return this.components.get(Component.name)
+    }
+
+    getComponents() {
+        return this.components.entries();
     }
 
     hasComponent(Component) {

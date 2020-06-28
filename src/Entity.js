@@ -16,6 +16,10 @@ export class Entity {
         return this.components.get(Component.name)
     }
 
+    getComponents() {
+        return this.components.entries();
+    }
+
     hasComponent(Component) {
         // !!~ turns result of indexOf into a boolean
         return !!~this.componentTypes.indexOf(Component);
