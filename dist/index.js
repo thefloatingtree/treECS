@@ -140,7 +140,7 @@ class EntityAdmin {
 
     init() {
         this._updateQueries();
-        this.firstUpdate = true;
+        this.firstUpdate = false;
     }
 
     registerSystem(System) {
@@ -178,7 +178,7 @@ class EntityAdmin {
         }
         this.entities.forEach(entity => {
             for (const queryName in this.queries) {
-                if (queryName === "singleton") continue;
+                if (queryName === "singleton") continue; // This is kinda ugly
                 const query = this.queries[queryName];
                 if (query.match(entity)) {
                     query.entities.push(entity);
