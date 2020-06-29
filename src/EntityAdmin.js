@@ -20,7 +20,7 @@ export class EntityAdmin {
 
     init() {
         this._updateQueries();
-        this.firstUpdate = true;
+        this.firstUpdate = false;
     }
 
     registerSystem(System) {
