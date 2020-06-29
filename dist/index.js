@@ -178,6 +178,7 @@ class EntityAdmin {
         }
         this.entities.forEach(entity => {
             for (const queryName in this.queries) {
+                if (queryName === "singleton") continue;
                 const query = this.queries[queryName];
                 if (query.match(entity)) {
                     query.entities.push(entity);
