@@ -24,7 +24,7 @@ export class EntityAdmin {
     }
 
     registerSystem(System) {
-        this.systems.push(new System(this.queries));
+        this.systems.push(new System(this, this.queries));
         return this;
     }
 
