@@ -20,6 +20,9 @@ export class EntityAdmin {
 
     _init() {
         this._updateQueries();
+        this.systems.forEach(system => {
+            if (system.init) system.init();
+        });
         this.firstUpdate = false;
     }
 
