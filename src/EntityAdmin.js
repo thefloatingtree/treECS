@@ -12,13 +12,13 @@ export class EntityAdmin {
     }
 
     update(delta) {
-        if (this.firstUpdate) this.init();
+        if (this.firstUpdate) this._init();
         this.systems.forEach(system => {
             system.update(delta);
         });
     }
 
-    init() {
+    _init() {
         this._updateQueries();
         this.firstUpdate = false;
     }

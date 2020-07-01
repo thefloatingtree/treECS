@@ -1,5 +1,8 @@
+import { v4 as UUID } from 'uuid';
+
 export class Entity {
     constructor() {
+        this.id = UUID();
         this.components = new Map();
         this.componentTypes = [];
     }
