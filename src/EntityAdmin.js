@@ -44,6 +44,14 @@ export class EntityAdmin {
         return newEntity;
     }
 
+    removeEntity(entity) {
+        this.entities = this.entities.filter(item => {
+            return item.id !== entity.id;
+        });
+        this._updateQueries();
+        return this;
+    }
+
     addSingletonComponent(Component, initialState = {}) {
         // These are singleton so only one instance can exist in the singleton entity.
         if (this.singletonComponents.hasComponent(Component)) return;

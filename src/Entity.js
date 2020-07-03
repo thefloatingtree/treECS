@@ -1,8 +1,8 @@
-import { v4 as UUID } from 'uuid';
+import { uuidv4 } from "./Util";
 
 export class Entity {
     constructor() {
-        this.id = UUID();
+        this.id = uuidv4();
         this.components = new Map();
         this.componentTypes = [];
     }
@@ -15,8 +15,14 @@ export class Entity {
         return this;
     }
 
+    removeComponent(Component) {
+        this.components.delete(Component.name);
+        this.componentTypes.splice(this.componentTypes.indexOf(Component), 1);
+        return this;
+    }
+
     getComponent(Component) {
-        return this.components.get(Component.name)
+        return this.components.get(Component.name);
     }
 
     getComponents() {
