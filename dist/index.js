@@ -100,8 +100,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _EntityAdmin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EntityAdmin", function() { return _EntityAdmin__WEBPACK_IMPORTED_MODULE_0__["EntityAdmin"]; });
+/* harmony import */ var _Scene__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Scene", function() { return _Scene__WEBPACK_IMPORTED_MODULE_0__["Scene"]; });
 
 /* harmony import */ var _System__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "System", function() { return _System__WEBPACK_IMPORTED_MODULE_1__["System"]; });
@@ -115,9 +115,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EntityAdmin", function() { return EntityAdmin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Scene", function() { return Scene; });
 /* harmony import */ var _Entity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _Query__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var _Util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -126,10 +127,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 
-var EntityAdmin = /*#__PURE__*/function () {
-  function EntityAdmin() {
-    _classCallCheck(this, EntityAdmin);
 
+var Scene = /*#__PURE__*/function () {
+  function Scene() {
+    _classCallCheck(this, Scene);
+
+    this.id = Object(_Util__WEBPACK_IMPORTED_MODULE_2__["uuidv4"])();
     this.systems = [];
     this.entities = [];
     this.queries = {};
@@ -137,7 +140,7 @@ var EntityAdmin = /*#__PURE__*/function () {
     this.firstUpdate = true;
   }
 
-  _createClass(EntityAdmin, [{
+  _createClass(Scene, [{
     key: "update",
     value: function update(delta) {
       if (this.firstUpdate) this._init();
@@ -230,7 +233,7 @@ var EntityAdmin = /*#__PURE__*/function () {
     }
   }]);
 
-  return EntityAdmin;
+  return Scene;
 }();
 
 /***/ }),

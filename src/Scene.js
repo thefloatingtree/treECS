@@ -1,8 +1,10 @@
 import { Entity } from './Entity';
 import { Query } from  './Query';
+import { uuidv4 } from './Util';
 
-export class EntityAdmin {
+export class Scene {
     constructor() {
+        this.id = uuidv4();
         this.systems = [];
         this.entities = [];
         this.queries = {};
