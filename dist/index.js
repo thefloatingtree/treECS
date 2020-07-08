@@ -367,11 +367,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "System", function() { return System; });
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var System = function System(entityAdmin, queries) {
+var System = function System(scene, queries) {
   _classCallCheck(this, System);
 
   this.queries = queries;
-  this.entityAdmin = entityAdmin;
+  this.scene = scene;
 };
 
 /***/ })

@@ -1,6 +1,6 @@
 export class System {
-    constructor(entityAdmin, queries) {
+    constructor(scene, queries) {
         this.queries = queries;
-        this.entityAdmin = entityAdmin;
+        this.scene = scene;
     }
 }
