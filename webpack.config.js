@@ -3,7 +3,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     globalObject: 'this',
-    path: __dirname + '/dist',
+    path: __dirname,
     filename: 'index.js',
     library: 'ecs',
     libraryTarget: 'umd'

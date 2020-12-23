@@ -2,19 +2,22 @@
   "name": "treecs",
   "version": "1.0.0",
   "description": "A simple ECS framework for javascript.",
-  "main": "dist/index.js",
+  "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "webpack",
     "start": "webpack && node .\\dist\\index.js",
-    "playground": "webpack && node .\\playground\\index.js"
+    "playground": "webpack && node .\\playground\\index.js",
+    "tsc": "tsc"
   },
-  "author": "",
+  "author": "thefloatingtree",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/plugin-proposal-optional-chaining": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "typescript": "^4.1.3",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
